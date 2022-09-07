@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "Integrador_arg_FabrizioAlbornozBlanco/node_modules/boostrap/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "Integrador_arg_FabrizioAlbornozBlanco/node_modules/boostrap/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {

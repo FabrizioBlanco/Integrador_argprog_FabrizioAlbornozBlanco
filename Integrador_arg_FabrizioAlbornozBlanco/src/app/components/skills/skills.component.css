@@ -1,8 +1,5 @@
-div{
-    color:black;
-    width: 30%;
-    height: 30px;
-}
-.progress{
-    border-radius: 2rem;
+.row{
+    background-color: #3382d7;
+    padding: 20px;
+    text-align: center;
 }

@@ -1,17 +1,27 @@
 .row{
     background-color: #3382d7;
 }
-h1{
-    left: 10%;
+h2{
+    font-size: 50px;
 }
 p{
+    font-size: 20px ;
+    position: relative;
+    display: inline-block;
     color: black;
+    right: 250px;
+    top: 125px;
 }
-
+.nombProyect{
+    display: inline-block;
+    position: relative;
+    top: 100px;
+    left: 100px;
+    /* text-align: center; */
+}
 .slider{
-    text-align: center;
-    width: 30%;
-    margin: auto;
+    width: 60%;
+    margin: 20px 0px;
     overflow: hidden;
 }
 .slider ul{
@@ -19,7 +29,7 @@ p{
     padding: 0;
     width: 200%;
 
-    animation: cambio 20s infinite;
+    animation: cambio 12s infinite;
 }
 .slider li{
     width: 100%;
@@ -27,6 +37,88 @@ p{
 }
 .slider img{
     width: 100%;
+}
+@media (min-width: 992px){
+    h2{
+        font-size: 50px;
+    }
+    .nombProyect{
+        width: 600px;
+        height: 60px;
+        left: 20px;
+        top: 120px;
+    }
+    p{  
+        font-size: 120%;
+        top: 120px;
+        left: 230px;   
+    }
+    .slider{
+        position: relative;
+        left: 20px;
+        width: 100%;
+    }   
+}
+@media (max-width: 991px){
+    h2{
+        font-size: 50px;
+    }
+    .nombProyect{
+        width: 600px;
+        height: 60px;
+        left: 20px;
+        top: 120px;
+    }
+    p{  
+        font-size: 120%;
+        top: 120px;
+        left: 230px;   
+    }
+    .slider{
+        position: relative;
+        left: 20px;
+        width: 100%;
+    }   
+}
+
+@media (max-width: 767px){
+    h2{
+        font-size: 32px;
+    }
+    .nombProyect{
+        width: 400px;
+        height: 40px;
+        top: 120px;
+        left: 10px;   
+    }
+    p{  
+        top: 110px;
+        left: 80px;   
+    }
+    .slider{
+        position: relative;
+        left: 40px;
+        width: 120%;
+    }
+    
+}
+@media (max-width: 575px){
+    .nombProyect{
+        
+        top: 5px;
+        left: 100px;
+     }
+    p{
+        
+        top: 30px;
+        left: -130px;
+    }
+    .slider{
+        position: relative;
+        left: 100px;
+        top: 10px;
+        width: 50%;
+    }
 }
 @keyframes cambio {
     0%{margin-left: 0;}

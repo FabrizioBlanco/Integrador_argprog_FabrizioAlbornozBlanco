@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 
 @RestController
+@CrossOrigin  (origins = "http://localhost:4200") //sirve para que acepte las peticiones desde esa página
 public class PersonaController {
     @Autowired
     IPersonaService ipersonaService; 
@@ -52,5 +54,8 @@ public class PersonaController {
         
         return persona;       
     }
-    
+    @GetMapping ("personas/traer/perfil")
+    public Persona findPersona(){
+        return ipersonaService.findPersona((Long)1);
+    }
 }

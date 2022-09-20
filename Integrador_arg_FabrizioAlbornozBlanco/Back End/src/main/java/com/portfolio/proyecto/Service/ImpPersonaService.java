@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ImpPersonaService implements IPersonaService {
     
-    @Autowired //inyectando dependencias
+    @Autowired //inyectando dependencias dentro de otras
     IPersonaRepository ipersonaRepository;
     
     @Override

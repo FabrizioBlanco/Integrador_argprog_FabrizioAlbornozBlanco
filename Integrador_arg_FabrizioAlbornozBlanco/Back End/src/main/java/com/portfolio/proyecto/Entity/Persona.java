@@ -10,12 +10,12 @@ import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity //el archivo contiene entidades
 @Getter @Setter //con esto me ahorro los getters y setters en el código
+@Entity //el archivo contiene entidades
 public class Persona {
     @Id //primaryKey
     @GeneratedValue(strategy = GenerationType.IDENTITY) //automaticamente se le agrega un número
-    private long id;
+    private Long id;
     @NotNull
     @Size(min = 1, max = 50, message = "Longitud inválida")
     private String name;
@@ -25,9 +25,5 @@ public class Persona {
     
     @Size(min = 1, max = 50, message = "Longitud inválida")
     private String img;
-    
-    
-    
-    
     
 }

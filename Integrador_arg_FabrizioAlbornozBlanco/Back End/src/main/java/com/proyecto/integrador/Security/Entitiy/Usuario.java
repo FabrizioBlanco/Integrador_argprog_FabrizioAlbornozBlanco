@@ -14,7 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Usuario {
+public class Usuario { //Esta clase accede a la base de datos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

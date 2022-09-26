@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.proyecto.integrador.Security.Enums;
 
-/**
- *
- * @author fabri
- */
-public class RolNombre {
-    
+
+public enum RolNombre {
+    ROLE_ADMIN, ROLE_USER;
+    //User: ve los productos
+    //Admin: los ve, crea y edita los productos
 }

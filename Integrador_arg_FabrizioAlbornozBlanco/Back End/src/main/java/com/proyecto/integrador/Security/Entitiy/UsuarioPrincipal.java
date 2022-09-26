@@ -14,13 +14,9 @@ public class UsuarioPrincipal implements UserDetails{
     
    
     private String nombre;
-   
     private String nombreUsuario;
-    
     private String email;
-    
     private String password;
-    
     private Collection<? extends GrantedAuthority> authorities; //<?> significa que es genérico
 
     @Override

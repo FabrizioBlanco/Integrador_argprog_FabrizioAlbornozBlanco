@@ -1,10 +1,10 @@
-package com.portfolio.proyecto;
+package com.proyecto.integrador;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProyectoApplicationTests {
+class IntegradorApplicationTests {
 
 	@Test
 	void contextLoads() {

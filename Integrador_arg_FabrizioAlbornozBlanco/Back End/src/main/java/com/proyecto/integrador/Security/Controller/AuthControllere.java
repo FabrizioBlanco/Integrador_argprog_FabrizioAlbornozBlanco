@@ -69,7 +69,7 @@ public class AuthControllere {
         Set<Rol> roles = new HashSet<>();
         roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
         if(nuevoUsuario.getRoles().contains("admin")){
-            roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
+            roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
         }
         usuario.setRoles(roles);
     return new ResponseEntity(new Mensaje("Usuario guardado"), HttpStatus.CREATED);

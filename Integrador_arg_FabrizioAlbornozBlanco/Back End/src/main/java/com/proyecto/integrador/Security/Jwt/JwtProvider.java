@@ -13,7 +13,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.UnsupportedJwtException;
-
+import io.jsonwebtoken.SignatureException;
 import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,7 +53,7 @@ public class JwtProvider {
             logger.error("Token expirado");
         }catch(IllegalArgumentException e){
             logger.error("Token vacío");
-        }catch(io.jsonwebtoken.SignatureException e){
+        }catch(SignatureException e){
             logger.error("Fallo en la firma");
         }
         return false;

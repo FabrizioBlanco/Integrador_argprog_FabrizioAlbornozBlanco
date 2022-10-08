@@ -1,7 +1,7 @@
 
-package com.portfolio.proyecto.Repository;
+package com.proyecto.integrador.Repository;
 
-import com.portfolio.proyecto.Entity.Persona;
+import com.proyecto.integrador.Entity.Persona;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,9 +1,9 @@
 
-package com.portfolio.proyecto.Service;
+package com.proyecto.integrador.Service;
 
-import com.portfolio.proyecto.Entity.Persona;
-import com.portfolio.proyecto.Interface.IPersonaService;
-import com.portfolio.proyecto.Repository.IPersonaRepository;
+import com.proyecto.integrador.Entity.Persona;
+import com.proyecto.integrador.Interface.IPersonaService;
+import com.proyecto.integrador.Repository.IPersonaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

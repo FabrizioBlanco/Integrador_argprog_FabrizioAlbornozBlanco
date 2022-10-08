@@ -1,7 +1,7 @@
 
-package com.portfolio.proyecto.Interface;
+package com.proyecto.integrador.Interface;
 
-import com.portfolio.proyecto.Entity.Persona;
+import com.proyecto.integrador.Entity.Persona;
 import java.util.List;
 
 

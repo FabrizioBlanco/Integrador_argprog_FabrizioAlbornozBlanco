@@ -1,9 +1,10 @@
-package com.portfolio.proyecto.Controller;
+package com.proyecto.integrador.Controller;
 
-import com.portfolio.proyecto.Entity.Persona;
-import com.portfolio.proyecto.Interface.IPersonaService;
+import com.proyecto.integrador.Entity.Persona;
+import com.proyecto.integrador.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,8 @@ public class PersonaController {
         return ipersonaService.getPersona();
     }
     
+    
+    @PreAuthorize("hasRole('ADMIN')") //Esto es para que sólo el administrador pueda realizar esta acción 
     @PostMapping("/personas/crear")
     public String createPersona(@RequestBody Persona persona){
      
@@ -34,11 +37,14 @@ public class PersonaController {
         return "¡Operación exitosa!";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/personas/borrar/{id}")
     public String deletePersona(@PathVariable Long id){
         ipersonaService.deletePersona(id);
         return "¡Borrado exitoso!";
     }
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/personas/edit/{id}")
     public Persona editPersona(@PathVariable Long id,
                               @RequestParam("name") String newName,
@@ -54,8 +60,12 @@ public class PersonaController {
         
         return persona;       
     }
+    /*
+    //Esto es para probar
     @GetMapping ("/personas/traer/perfil")
+     
     public Persona findPersona(){
         return ipersonaService.findPersona((long)1);
     }
+    */
 }

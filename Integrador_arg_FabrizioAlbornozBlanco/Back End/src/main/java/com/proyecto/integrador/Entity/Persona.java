@@ -1,5 +1,5 @@
 
-package com.portfolio.proyecto.Entity;
+package com.proyecto.integrador.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

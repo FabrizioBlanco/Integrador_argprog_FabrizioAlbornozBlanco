@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'; //permite que el servicio sea inyectado en los componentes
 import { Observable } from 'rxjs';
 import { persona } from '../model/persona.model';
 

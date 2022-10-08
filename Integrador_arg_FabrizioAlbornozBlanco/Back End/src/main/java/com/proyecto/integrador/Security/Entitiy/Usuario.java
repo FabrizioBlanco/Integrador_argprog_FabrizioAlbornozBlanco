@@ -17,16 +17,16 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Usuario { //Esta clase accede a la base de datos
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    
     private int id;
-    @NotNull
+    @NotNull    
     private String nombre;
     @NotNull
     @Column(unique = true)
     private String nombreUsuario;
-    @NotNull
+    @NotNull    
     private String email;
-    @NotNull
+    @NotNull    
     private String password;
     
    @NotNull

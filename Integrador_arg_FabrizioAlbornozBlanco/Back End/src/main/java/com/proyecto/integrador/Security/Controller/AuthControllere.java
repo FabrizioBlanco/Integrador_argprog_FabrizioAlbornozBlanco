@@ -51,27 +51,31 @@ public class AuthControllere {
     
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
-    
-        if(bindingResult.hasErrors()){
+        //verificamos los campos//
+        if(bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("campos mal puestos o mail inválido"), HttpStatus.BAD_REQUEST);
-        }
-        if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario())){
-            return new ResponseEntity(new Mensaje("Ese nombre ya existe"),HttpStatus.BAD_REQUEST);
-        }
-        if(usuarioService.existsByEmail(nuevoUsuario.getEmail())){
-            return new ResponseEntity(new Mensaje("Ese email ya existe"),HttpStatus.BAD_REQUEST);
-        }
         
+        if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario()))
+            return new ResponseEntity(new Mensaje("Ese nombre ya existe"),HttpStatus.BAD_REQUEST);
+        
+        if(usuarioService.existsByEmail(nuevoUsuario.getEmail()))
+            return new ResponseEntity(new Mensaje("Ese email ya existe"),HttpStatus.BAD_REQUEST);        
+        //Acá creamos al nuestro nuevo usuario//
         Usuario usuario = new Usuario (nuevoUsuario.getNombre(),
                                        nuevoUsuario.getNombreUsuario(),
                                        nuevoUsuario.getEmail(),
                                        passwordEncoder.encode(nuevoUsuario.getPassword()));
+        //Le agregamos los roles a los usuarios//
         Set<Rol> roles = new HashSet<>();
+        //por defecto, el nuevo rol será de usuario//
         roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
-        if(nuevoUsuario.getRoles().contains("admin")){
+        //si contiene admin, le ponemos como rol Admin//
+        if(nuevoUsuario.getRoles().contains("admin"))
             roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
-        }
+        //le pasamos a la clase usuario//
         usuario.setRoles(roles);
+        //Acá guiardamos el usuario//
+        usuarioService.save(usuario);
     return new ResponseEntity(new Mensaje("Usuario guardado"), HttpStatus.CREATED);
     }
     @PostMapping("/login")

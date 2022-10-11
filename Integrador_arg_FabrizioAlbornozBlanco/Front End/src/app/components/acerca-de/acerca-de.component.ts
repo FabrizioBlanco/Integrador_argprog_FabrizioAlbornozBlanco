@@ -17,10 +17,10 @@ export class AcercaDeComponent implements OnInit {
     this.personaService
       .getPersona()
       .subscribe(data => { 
-      /*suscribe conecta el observer con los eventos observables.
-      Cuando detecta un cambio, ejecuta el código.*/
+      
         this.persona=data;
-      })
+      })/*suscribe conecta el observer con los eventos observables.
+      Cuando detecta un cambio, ejecuta el código.*/
   }
   
 }

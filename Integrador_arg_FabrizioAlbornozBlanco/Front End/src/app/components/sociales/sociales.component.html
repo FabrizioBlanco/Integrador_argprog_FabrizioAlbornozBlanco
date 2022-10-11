@@ -8,5 +8,6 @@
     <a href="https://github.com/FabrizioBlanco" >
         <img src="../../../assets/github.png" alt="">
     </a>
-    <button type="button" class="btn btn-light" (click)="login()">Log In</button>
+    <button type="button" class="btn btn-light" (click)="login()" *ngIf="!isLogged">LogIn</button> <!--*ngIf es un IF común y corriente pero en HTML-->
+    <button type="button" class="btn btn-light" (click)="onLogout()" *ngIf="isLogged">LogOut</button>
 </div>

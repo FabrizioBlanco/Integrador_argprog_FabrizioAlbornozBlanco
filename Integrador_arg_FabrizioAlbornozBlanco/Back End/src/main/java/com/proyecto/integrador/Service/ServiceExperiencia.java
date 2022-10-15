@@ -24,7 +24,7 @@ public class ServiceExperiencia {
         return rExperiencia.findAll();    
     }
     
-    public Optional<Experiencia> getOne(int id){//un método de JpaRepository, aun que dice que esta en desuso. 
+    public Optional<Experiencia> getOne(int id){//Es un método de JpaRepository, aun que dice que esta en desuso. 
         return rExperiencia.findById(id);
         
     }

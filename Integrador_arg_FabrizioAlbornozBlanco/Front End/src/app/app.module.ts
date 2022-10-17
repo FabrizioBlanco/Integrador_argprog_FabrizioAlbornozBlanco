@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component'
 import { FormsModule }   from '@angular/forms';
 import { interceptorProvider } from './service/interceptor-service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +34,6 @@ import { interceptorProvider } from './service/interceptor-service';
     ProyectosComponent,
     HomeComponent,
     LoginComponent,
-    
-    
   ],
   imports: [
     BrowserModule,

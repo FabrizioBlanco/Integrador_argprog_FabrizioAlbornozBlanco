@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("Experiencia Laboral")
+@RequestMapping("experiencialaboral")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ControllerExperiencia {
 
@@ -72,4 +73,22 @@ public class ControllerExperiencia {
         return new ResponseEntity<>(new Mensaje ("Experiencia actualizada"), HttpStatus.OK);
         
     }
+
+    @DeleteMapping("/borrar/{id}")
+    public ResponseEntity<?> borrarExperiencia(@PathVariable("id") Integer id){
+        if(!sExperiencia.existsById(id)){
+            return new ResponseEntity<>(new Mensaje("Ese ID no existe"), HttpStatus.NOT_FOUND);
+        }
+        sExperiencia.delete(id);
+    return new ResponseEntity<>(new Mensaje("La experiencia ha sido borrada"), HttpStatus.OK);
+    }
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
+        if(!sExperiencia.existsById(id))
+            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        Experiencia experiencia = sExperiencia.getOne(id).get();
+        return new ResponseEntity(experiencia, HttpStatus.OK);
+    }
+
+
 }

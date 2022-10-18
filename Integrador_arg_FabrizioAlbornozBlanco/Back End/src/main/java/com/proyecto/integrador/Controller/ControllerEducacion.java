@@ -1,0 +1,91 @@
+package com.proyecto.integrador.Controller;
+
+import com.proyecto.integrador.Dto.DtoEducacion;
+import com.proyecto.integrador.Entity.Educacion;
+import com.proyecto.integrador.Service.ServiceEducacion;
+import java.util.List;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("educacion")
+@CrossOrigin(origins = "http://localhost:4200")
+public class ControllerEducacion {
+
+    @Autowired
+    ServiceEducacion sEducacion;
+
+    @GetMapping("/lista")
+    public ResponseEntity<List<Educacion>> list() {
+        List<Educacion> list = sEducacion.list();
+        return new ResponseEntity(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Educacion> getById(int id) {
+
+        if (!sEducacion.existsById(id)) {
+            return new ResponseEntity(new Mensaje("No existe"), HttpStatus.NOT_FOUND);
+        }
+        Educacion educ = sEducacion.getOne(id).get();
+        return new ResponseEntity(educ, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Educacion> delete(int id) {
+        if (!sEducacion.existsById(id)) {
+            return new ResponseEntity(new Mensaje("No existe"), HttpStatus.NOT_FOUND);
+        }
+        sEducacion.delete(id);
+        return new ResponseEntity(new Mensaje("Educacion eliminada"), HttpStatus.OK);
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody DtoEducacion dtoEduc) {
+        if (StringUtils.isBlank(dtoEduc.getNombreEduc())) {
+            return new ResponseEntity(new Mensaje("El campo no puede estar en blanco"), HttpStatus.BAD_REQUEST);
+        }
+        if (sEducacion.existsByNombrEduc(dtoEduc.getNombreEduc())) {
+            return new ResponseEntity<>(new Mensaje("la educación ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        if(StringUtils.isBlank(dtoEduc.getAnos())){
+            return new ResponseEntity<>(new Mensaje("El campo no puede estar en blanco"), HttpStatus.BAD_REQUEST);
+        }
+
+        Educacion educacion = new Educacion(dtoEduc.getNombreEduc(), dtoEduc.getDescripcionEduc(), dtoEduc.getAnos());
+        sEducacion.save(educacion);
+        return new ResponseEntity<>(new Mensaje("La educacion ha sido guardada"), HttpStatus.OK);
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable("id")int id, @RequestBody DtoEducacion dtoEduc){
+    
+        if(!sEducacion.existsById(id)){
+            return new ResponseEntity<>(new Mensaje("El ID no existe"), HttpStatus.NOT_FOUND);
+        }
+        if(sEducacion.existsByNombrEduc(dtoEduc.getNombreEduc()) && sEducacion.getByNombreEduc(dtoEduc.getNombreEduc()).get().getId() != id){
+            return new ResponseEntity(new Mensaje("Esa Educacion ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        if(StringUtils.isBlank(dtoEduc.getNombreEduc())){
+            return new ResponseEntity<>(new Mensaje("La educación es obligatoria"), HttpStatus.BAD_REQUEST);
+        }
+        Educacion educacion = sEducacion.getOne(id).get();
+        educacion.setNombreEduc(dtoEduc.getNombreEduc());
+        educacion.setDescripcionEduc(dtoEduc.getDescripcionEduc());
+        educacion.setAnos(dtoEduc.getAnos());
+        sEducacion.save(educacion);
+        
+        return new ResponseEntity<>(new Mensaje ("La educacion ha sido actualizada"), HttpStatus.OK);
+    }
+
+}

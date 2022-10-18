@@ -1,1 +1,17 @@
-<p>edit-experiencia works!</p>
+<div class="container" *ngIf="expLab">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="nombreE">Nombre Empresa</label>
+                    <input type="text" class="form-control" id="nombreE" name="nombreE" [(ngModel)]="expLab.nombreE" required>
+                </div>
+                <div class="form-group">
+                    <label for="descripcionE">Descripcion Empresa</label>
+                    <input type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="expLab.descripcionE" required>
+                </div>
+                <button class="btn btn-light">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>

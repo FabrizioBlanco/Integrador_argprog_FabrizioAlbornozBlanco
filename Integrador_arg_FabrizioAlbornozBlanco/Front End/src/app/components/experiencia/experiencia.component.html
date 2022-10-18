@@ -12,14 +12,14 @@
                 <tr>
                     <td><h3>Nombre Empresa</h3></td>
                     <td><h3>Descripcion</h3></td>
-                    <td><h3>Accion 1</h3></td>
-                    <td><h3>Accion 2</h3></td>
+                    <td *ngIf="isLogged"><h3>Accion 1</h3></td>
+                    <td *ngIf="isLogged"><h3>Accion 2</h3></td>
                 </tr>
                 <tr *ngFor="let Experiencia of expe">
                     <td>{{Experiencia.nombreE}}</td>
                     <td>{{Experiencia.descripcionE}}</td>
-                    <td><i class="fa-regular fa-pen-to-square"></i> EDITAR</td>
-                    <td><i class="fa-sharp fa-solid fa-trash"></i> BORRAR</td>
+                    <td *ngIf="isLogged"><i class="fa-regular fa-pen-to-square"> </i><button class="btn btn-light" routerLink="/editexp/{{Experiencia.id}}"> EDITAR</button></td>
+                    <td *ngIf="isLogged"><i class="fa-sharp fa-solid fa-trash"> </i><button class="btn btn-danger" (click)="delete(Experiencia.id)"> BORRAR</button></td>
                 </tr>
             </tbody>
         </table>

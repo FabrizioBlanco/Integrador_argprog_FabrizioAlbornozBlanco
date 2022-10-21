@@ -15,16 +15,14 @@ public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nombreEduc;
-    private String descripcionEduc;
-    private String anos;
+    private String nombreE;
+    private String descripcionE;
 
     public Educacion() {}
 
-    public Educacion(String nombreEduc, String descripcionEduc, String anos) {
-        this.nombreEduc = nombreEduc;
-        this.descripcionEduc = descripcionEduc;
-        this.anos = anos;
+    public Educacion(String nombreE, String descripcionE) {
+        this.nombreE = nombreE;
+        this.descripcionE = descripcionE;
     }
 
     public int getId() {
@@ -35,29 +33,22 @@ public class Educacion {
         this.id = id;
     }
 
-    public String getNombreEduc() {
-        return nombreEduc;
+    public String getNombreE() {
+        return nombreE;
     }
 
-    public void setNombreEduc(String nombreEduc) {
-        this.nombreEduc = nombreEduc;
+    public void setNombreE(String nombreE) {
+        this.nombreE = nombreE;
     }
 
-    public String getDescripcionEduc() {
-        return descripcionEduc;
+    public String getDescripcionE() {
+        return descripcionE;
     }
 
-    public void setDescripcionEduc(String descripcionEduc) {
-        this.descripcionEduc = descripcionEduc;
+    public void setDescripcionE(String descripcionE) {
+        this.descripcionE = descripcionE;
     }
-
-    public String getAnos() {
-        return anos;
-    }
-
-    public void setAnos(String anos) {
-        this.anos = anos;
-    }
+   
     
 }
 

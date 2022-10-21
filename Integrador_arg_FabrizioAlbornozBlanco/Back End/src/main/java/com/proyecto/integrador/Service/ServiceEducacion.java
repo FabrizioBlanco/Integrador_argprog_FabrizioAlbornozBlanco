@@ -6,7 +6,6 @@
 package com.proyecto.integrador.Service;
 
 import com.proyecto.integrador.Entity.Educacion;
-import com.proyecto.integrador.Entity.Experiencia;
 import com.proyecto.integrador.Repository.RepositoryEducacion;
 import java.util.List;
 import java.util.Optional;
@@ -19,15 +18,17 @@ import org.springframework.stereotype.Service;
 public class ServiceEducacion {
     @Autowired
     RepositoryEducacion rEducacion;
+    
     public List<Educacion> list(){
         return rEducacion.findAll();
     }
-    public Optional<Educacion> getOne(int id){
-         return rEducacion.findById(id);
-     }
     
-    public Optional<Educacion> getByNombreEduc(String nombreEduc){
-        return rEducacion.findByNombreEduc(nombreEduc);
+    public Optional<Educacion> getOne(int id){
+        return rEducacion.findById(id);
+    }
+    
+    public Optional<Educacion> getByNmbreE(String nombreE){
+        return rEducacion.findByNombreE(nombreE);
     }
     public void save(Educacion educacion){
         rEducacion.save(educacion);
@@ -39,7 +40,7 @@ public class ServiceEducacion {
         return rEducacion.existsById(id);
     }
     
-    public boolean existsByNombrEduc(String nombreEduc){
-        return rEducacion.existsByNombreEduc(nombreEduc);
+    public boolean existsByNombreE(String nombreE){
+        return rEducacion.existsByNombreE(nombreE);
     }
 }

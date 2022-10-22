@@ -6,29 +6,29 @@ import { Educacion } from '../model/educacion';
 @Injectable({
   providedIn: 'root'
 })
-export class EducacionServiceService {
-  educURL: 'http://localhost:8080/educacion/'
+export class EducacionService {
+  URL = 'http://localhost:8080/educacion/';
+
   constructor(private httpClient : HttpClient) { }
 
   public lista(): Observable<Educacion[]>{
-    return this.httpClient.get<Educacion[]>(this.educURL + 'lista');
+    return this.httpClient.get<Educacion[]>(this.URL + 'lista');
   }
 
   public detail(id: number): Observable<Educacion>{
-    return this.httpClient.get<Educacion>(this.educURL + `detail/${id}`);
+    return this.httpClient.get<Educacion>(this.URL + `detail/${id}`);
   }
 
   public save(educacion: Educacion): Observable<any>{
-    return this.httpClient.post<any>(this.educURL + 'create', educacion);
+    return this.httpClient.post<any>(this.URL + 'create', educacion);
   }
 
   public update(id: number, educacion: Educacion): Observable<any>{
-    return this.httpClient.put<any>(this.educURL + `update/${id}`, educacion);
+    return this.httpClient.put<any>(this.URL + `update/${id}`, educacion);
   }
 
   public delete(id: number): Observable<any>{
-    return this.httpClient.delete<any>(this.educURL + `delete/${id}`);
+    return this.httpClient.delete<any>(this.URL + `delete/${id}`);
   }
 }
-
 

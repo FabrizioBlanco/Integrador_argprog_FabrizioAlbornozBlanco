@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
-import { EducacionServiceService } from 'src/app/service/educacion-service.service';
+import { EducacionService } from 'src/app/service/educacion.service';
 
 @Component({
   selector: 'app-new-educacion',
@@ -12,7 +12,7 @@ export class NewEducacionComponent implements OnInit {
   nombreE: string;
   descripcionE: string;
   
-  constructor(private sEducacion: EducacionServiceService, private router:Router) { }
+  constructor(private sEducacion: EducacionService, private router:Router) { }
 
   ngOnInit(): void {
   }

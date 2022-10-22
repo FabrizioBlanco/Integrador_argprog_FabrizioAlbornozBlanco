@@ -18,7 +18,7 @@
                 <tr *ngFor="let Educacion of educacion">
                     <td>{{Educacion.nombreE}}</td>
                     <td>{{Educacion.descripcionE}}</td>
-                    <td *ngIf="isLogged"><i class="fa-regular fa-pen-to-square"> </i><button class="btn btn-light" routerLink="/editexp/{{Educacion.id}}"> EDITAR</button></td>
+                    <td *ngIf="isLogged"><i class="fa-regular fa-pen-to-square"> </i><button class="btn btn-light" routerLink="/editeduc/{{Educacion.id}}"> EDITAR</button></td>
                     <td *ngIf="isLogged"><i class="fa-sharp fa-solid fa-trash"> </i><button class="btn btn-danger" (click)="delete(Educacion.id)"> BORRAR</button></td>
                 </tr>
             </tbody>

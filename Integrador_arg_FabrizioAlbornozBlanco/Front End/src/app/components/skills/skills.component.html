@@ -1,112 +1,37 @@
-
-<div class="row ">
+<div class="row">
     <h1>Hard skills & Soft Skills</h1>
-    <div class="col-sm-4 col-md-4 col-lg-4">
-       <circle-progress
-        [percent]="54"
-        [radius]="100"        
-        [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'Orange'"
-        [innerStrokeColor]="'#fbbd49'"
-        [animation]="true"
-        [animationDuration]="1000"
-        [showUnits]="false"
-        [title]="'HTML'"
-        [titleColor]="'orange'"
-        [titleFontSize]="'30px'"
-        [showSubtitle]="false"
-        [lazy]="false"
-    ></circle-progress> 
+    <div class="col-lg-2">
+        
+        <button type="button" class="btn btn-light" routerLink="/nuevaskill" *ngIf="isLogged">
+            Nueva Skill
+        </button>
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
+    <div class="col-sm-4 col-md-4 col-lg-4 " *ngFor="let Skill of skill">
         <circle-progress
-         [percent]="85"
-         [radius]="100"        
-         [outerStrokeWidth]="16"
-         [innerStrokeWidth]="8"
-         [outerStrokeColor]="'yellow'"
-         [innerStrokeColor]="'#ffffbb'"
-         [animation]="true"
-         [animationDuration]="1000"
-         [showUnits]="false"
-         [title]="'JAVASCRIPT'"
-         [titleColor]="'yellow'"
-         [titleFontSize]="'30px'"
-         [showSubtitle]="false"
-         [lazy]="false"
-     ></circle-progress> 
-     </div>
-     <div class="col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-         [percent]="85"
-         [radius]="100"        
-         [outerStrokeWidth]="16"
-         [innerStrokeWidth]="8"
-         [outerStrokeColor]="'#004cff'"
-         [innerStrokeColor]="'lightskyblue'"
-         [showSubtitle]="false"         
-         [animation]="true"
-         [animationDuration]="1000"
-         [showUnits]="false"
-         [title]="'CSS'"
-         [titleColor]="'blue'"
-         [titleFontSize]="'30px'"
-         [lazy]="false"
-     ></circle-progress> 
-     </div>
-     <div class="col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-         [percent]="85"
-         [radius]="100"        
-         [outerStrokeWidth]="16"
-         [innerStrokeWidth]="8"
-         [outerStrokeColor]="'#78C000'"
-         [innerStrokeColor]="'#C7E596'"
-         [animation]="true"
-         [animationDuration]="1000"
-         [showUnits]="false"
-         [title]="'Compañerismo'"
-         [titleColor]="'red'"
-         [titleFontSize]="'20px'"
-         [showSubtitle]="false"
-         [lazy]="false"
-     ></circle-progress> 
-     </div>
-     <div class="col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-         [percent]="85"
-         [radius]="100"        
-         [outerStrokeWidth]="16"
-         [innerStrokeWidth]="8"
-         [outerStrokeColor]="'#78C000'"
-         [innerStrokeColor]="'#C7E596'"
-         [animation]="true"
-         [animationDuration]="1000"
-         [showUnits]="false"
-         [title]="'inglés'"
-         [titleColor]="'red'"
-         [titleFontSize]="'20px'"
-         [showSubtitle]="false"
-         [lazy]="false"
-     ></circle-progress> 
-     </div>
-     <h1>ACORDATE, FALTAN MÁS POR PONER</h1>
-    
-</div>
- <!--
-   
-    FALTAN:
-    - modificar los porcentajes
-    En hard Skills:
-    -gitHub
-    -MySQL
-    -Java
-    -NodeJs
-    -Angular
-    En Soft Skills (cambiar color a esto):
-    -Organizado
-    -
-    
-    -->
+             [percent]="(Skill.porcentaje)"
+             [radius]="100"
+             [outerStrokeWidth]="16"
+             [innerStrokeWidth]="8"
+             [title]="(Skill.nombre)"
+             [outerStrokeColor]="'Orange'"
+             [innerStrokeColor]="'#fbbd49'"
+             [animation]="true"
+             [animationDuration]="1000"
+             [showUnits]="false"
+             [titleColor]="'orange'"
+             [titleFontSize]="'30px'" 
+             [showSubtitle]="false" 
+             [lazy]="false">
+        </circle-progress>
 
+
+        <td *ngIf="isLogged">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <button class="btn btn-light" routerLink="/editskill/{{Skill.id}}"> EDITAR</button>
+        </td>
+        <td *ngIf="isLogged">
+            <i class="fa-sharp fa-solid fa-trash"></i>
+            <button class="btn btn-danger" (click)="delete(Skill.id)"> BORRAR</button>
+        </td>
+    </div>
+</div>

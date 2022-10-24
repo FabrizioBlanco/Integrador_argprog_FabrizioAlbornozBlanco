@@ -29,11 +29,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControllerHys {
     @Autowired
     Shys sHyS;
+    //LISTO
     @GetMapping("/lista")
     public ResponseEntity<List<hys>> list(){
         List<hys> list= sHyS.lista();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+    //LISTO
     @GetMapping("/detail/{id}")
     public ResponseEntity<hys> getById(@PathVariable("id")int id){
         if(!sHyS.existsById(id)){
@@ -43,7 +45,7 @@ public class ControllerHys {
         hys educacion = sHyS.getOne(id).get();
         return new ResponseEntity(educacion, HttpStatus.OK);
     }
-    
+    //LISTO
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!sHyS.existsById(id)){
@@ -52,7 +54,7 @@ public class ControllerHys {
         sHyS.delete(id);
         return new ResponseEntity(new Mensaje("Skill eliminada"), HttpStatus.OK);
     }
-    
+    //LISTO
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoHys dtoHyS){
         if(StringUtils.isBlank(dtoHyS.getNombre())){
@@ -67,7 +69,7 @@ public class ControllerHys {
         return new ResponseEntity(new Mensaje("Skill creada"), HttpStatus.OK);
                 
     }
-    
+    //LISTO
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoHys dtoHyS){
         if(!sHyS.existsById(id)){

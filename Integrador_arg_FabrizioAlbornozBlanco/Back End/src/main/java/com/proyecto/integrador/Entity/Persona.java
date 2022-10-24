@@ -15,15 +15,29 @@ import lombok.Setter;
 public class Persona {
     @Id //primaryKey
     @GeneratedValue(strategy = GenerationType.IDENTITY) //automaticamente se le agrega un número
-    private Long id;
+    private int id;
     @NotNull
     @Size(min = 1, max = 50, message = "Longitud inválida")
-    private String name;
+    private String nombre;
     @NotNull
     @Size(min = 1, max = 50, message = "Longitud inválida")
-    private String surname;
+    private String apellido;
+    @NotNull
+    @Size(min = 1, message = "Longitud inválida")
+    private String descripcion;
     
-    @Size(min = 1, max = 50, message = "Longitud inválida")
     private String img;
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, String descripcion, String img) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.descripcion = descripcion;
+        this.img = img;
+    }
+    
+    
     
 }

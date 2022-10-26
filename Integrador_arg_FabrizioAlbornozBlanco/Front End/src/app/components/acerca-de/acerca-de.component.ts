@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { persona } from 'src/app/model/persona.model';
+import { Persona } from 'src/app/model/Persona.model';
 import { PersonaService } from 'src/app/service/persona.service';
+import { TokenService } from 'src/app/service/token.service';
+
+
 
 
 @Component({
@@ -9,18 +12,29 @@ import { PersonaService } from 'src/app/service/persona.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-  persona: persona = new persona("","","");
-  constructor(public personaService: PersonaService) {}
+  persona: Persona = new Persona ("","","","")
+  constructor(private personaService: PersonaService, 
+              private tokenService: TokenService) {}
+  isLogged = false
 
-  //aquí llamamos/usamos a nuestro servicio de persona  
   ngOnInit(): void {
-    this.personaService
-      .getPersona()
-      .subscribe(data => { 
-      
-        this.persona=data;
-      })/*suscribe conecta el observer con los eventos observables.
-      Cuando detecta un cambio, ejecuta el código.*/
+    
+    // alert(this.persona)
+    // console.log(Persona)
+    this.cargarPersona()
+    if(this.tokenService.getToken()){
+      this.isLogged = true
+    }else{
+      this.isLogged = false
+    }
+    
+  }
+  cargarPersona(){
+    this.personaService.detail(1).subscribe(
+      data=>{
+        this.persona = data
+      }
+    )
   }
   
 }

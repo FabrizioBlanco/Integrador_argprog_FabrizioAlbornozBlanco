@@ -1,12 +1,14 @@
-export class persona{
+export class Persona{
     id?: number //Se indica así que el dato no es necesario
-    name: string
-    surname: string
+    nombre: string
+    apellido: string
     img: string
+    descripcion:string
 
-    constructor(name:string, surname:string, img:string){
-        this.name = name
-        this.surname = surname
+    constructor(nombre:string, apellido:string, img:string, descripcion: string){
+        this.nombre = nombre
+        this.apellido = apellido
         this.img = img
+        this.descripcion = descripcion
     }
 }

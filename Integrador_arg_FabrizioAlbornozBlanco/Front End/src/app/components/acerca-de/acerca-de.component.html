@@ -1,17 +1,25 @@
 <div class="row">
+    <div >
+        <button type="button" class="btn btn-light" routerLink="/nuevapers" *ngIf="isLogged">
+            Crear
+        </button>
+    </div>
+    <div >
+        <button type="button" class="btn btn-light" routerLink="/editacercade/1" *ngIf="isLogged">
+            Editar
+        </button>
+    </div>
     <div class="col-sm-2 col-md-2 col-lg-2">
-        <img src="../../../assets/s.jpg" class="img-fluid" id="fotodeperfil">
+        <img src={{persona.img}} class="img-fluid" id="fotodeperfil">
     </div>    
     <div class="col-sm-2 col-md-2 col-lg-2">
-        <p id="name">{{persona.name}} {{persona.surname}}</p>
+        <p id="name">{{persona.nombre}} {{persona.apellido}}</p>
         <p>Full Stack Developer Jr</p>
     </div>
     <div class="col-sm-8 col-md-8 col-lg-8">
         <span>
-            <h1>
-                Acerca De mí:
-            </h1>
-            <p>Hola! Mi nombre es Fabrizio Albornoz Blanco, tengo 24 años y vivo en Mendoza-Argentina. Hace poco que empecé a estudiar desarrollo web gracias a la oportunidad del plan Argentina Programa, y cada vez me gusta más este mundo del full stack developer. Tengo muchas ansias de aprender y aventurarme a trabajar como desarrollador web para formarme lo máximo que pueda.</p>
+            <h1>Acerca De mí: </h1>
+            <p>{{persona.descripcion}}</p>
         </span>
     </div>
  </div>

@@ -1,16 +1,30 @@
-.row{
+.row {
     padding: 25px;
 }
+
 /*fondo*/
-div{
+div {
     background-color: #3382d7;
     text-align: center;
 }
+
+/*descripción*/
+#desc {
+    white-space: initial;
+    overflow: hidden;
+
+}
+/*botón edit*/
+.edit {
+    display: inline-block;
+    position: relative;
+    right: 330px;
+}
 /* Foto de perfil */
 
-@media (min-width: 576px){
-    #fotodeperfil{
-        position:absolute;
+@media (min-width: 576px) {
+    #fotodeperfil {
+        position: absolute;
         width: 14%;
         border-radius: 50%;
         box-shadow: 5px 8px 15px black;
@@ -19,9 +33,9 @@ div{
     }
 }
 
-@media (max-width: 1320px){
-    #fotodeperfil{
-        position:absolute;
+@media (max-width: 1320px) {
+    #fotodeperfil {
+        position: absolute;
         width: 14%;
         border-radius: 50%;
         box-shadow: 5px 8px 15px black;
@@ -29,9 +43,10 @@ div{
         top: 650px;
     }
 }
-@media (max-width: 1099px){
-    #fotodeperfil{
-        position:absolute;
+
+@media (max-width: 1099px) {
+    #fotodeperfil {
+        position: absolute;
         width: 14%;
         border-radius: 50%;
         box-shadow: 5px 8px 15px black;
@@ -39,9 +54,10 @@ div{
         top: 680px;
     }
 }
-@media (max-width: 874px){
-    #fotodeperfil{
-        position:absolute;
+
+@media (max-width: 874px) {
+    #fotodeperfil {
+        position: absolute;
         width: 14%;
         border-radius: 50%;
         box-shadow: 5px 8px 15px black;
@@ -49,9 +65,10 @@ div{
         top: 710px;
     }
 }
-@media (max-width: 623px){
-    #fotodeperfil{
-        position:absolute;
+
+@media (max-width: 623px) {
+    #fotodeperfil {
+        position: absolute;
         width: 14%;
         border-radius: 50%;
         box-shadow: 5px 8px 15px black;
@@ -59,24 +76,25 @@ div{
         top: 732px;
     }
 }
-@media (max-width: 575px){
-    #fotodeperfil{
-        position:sticky;
+
+@media (max-width: 575px) {
+    #fotodeperfil {
+        position: sticky;
         width: 40%;
         border-radius: 50%;
-        box-shadow:5px 8px 15px black;
+        box-shadow: 5px 8px 15px black;
         left: 25%;
     }
 }
 
 /*etiqueta nombre*/
-#name{
+#name {
     font-weight: bold;
-    margin-top: 10%;    
+    margin-top: 10%;
 }
-.titYNomb{
-    position: absolute;    
+
+.titYNomb {
+    position: absolute;
     height: 130px;
     border: 2px solid black;
 }
-

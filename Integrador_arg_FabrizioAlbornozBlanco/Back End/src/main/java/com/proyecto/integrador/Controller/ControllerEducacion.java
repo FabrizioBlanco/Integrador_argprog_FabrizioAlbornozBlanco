@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/educacion")
 //@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "https://proyectoargprogfrontend.web.app")
+@CrossOrigin(origins = "https://porfoliofrontend.web.app")
 public class ControllerEducacion {
-
+    
     @Autowired
     ServiceEducacion sEducacion;
-
+    
     @GetMapping("/lista")
     public ResponseEntity<List<Educacion>> list(){
         List<Educacion> list = sEducacion.list();

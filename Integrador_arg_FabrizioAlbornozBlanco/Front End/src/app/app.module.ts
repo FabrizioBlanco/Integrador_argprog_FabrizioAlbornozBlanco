@@ -25,8 +25,9 @@ import { EditEducacionComponent } from './components/educacion/edit-educacion.co
 import { NewskillComponent } from './components/skills/newskill.component';
 import { EditskillComponent } from './components/skills/editskill.component';
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
-import { NewPersonaComponent } from './components/acerca-de/new-persona.component';
-
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { NewPersonaComponent } from './components/acerca-de/new-persona.componen
     NewskillComponent,
     EditskillComponent,
     EditAcercaDeComponent,
-    NewPersonaComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -57,6 +58,9 @@ import { NewPersonaComponent } from './components/acerca-de/new-persona.componen
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
     FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
+  
    
   ],
   providers: [

@@ -8,9 +8,11 @@ import { Skill } from '../model/skill';
   providedIn: 'root'
 })
 export class HysService {
-  URL = environment.URL + 'hysskill/'
+  // URL = environment.URL + 'hysskill/'
+  URL = 'https://backendfabrizio.herokuapp.com/hysskill/'
+         
   constructor(private httpClient: HttpClient) { }
-
+  
   public lista(): Observable<Skill[]>{
     return this.httpClient.get<Skill[]>(this.URL + 'lista');
   }

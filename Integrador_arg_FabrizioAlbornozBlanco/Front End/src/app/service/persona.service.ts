@@ -10,12 +10,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PersonaService {
-  URL = environment.URL + 'personas/'
+  // URL = environment.URL + 'personas/'
+  URL = 'https://backendfabrizio.herokuapp.com/personasmalas/'
   
   constructor(private http: HttpClient) { }
   //EL "observable" lo usa angular para hacer la peticiones asincronas.
+ 
   public list():Observable<Persona[]>{
-    return this.http.get<Persona[]>(this.URL + 'lista')
+    return this.http.get<Persona[]>(this.URL + 'listita')
   }
   public detail(id:number):Observable<Persona>{
     return this.http.get<Persona>(this.URL + `detail/${id}`)

@@ -15,15 +15,10 @@ import { TokenService } from 'src/app/service/token.service';
 export class AcercaDeComponent implements OnInit {
   persona: Persona = new Persona ("","","","")
   constructor(private personaService: PersonaService, 
-              private tokenService: TokenService,
-              private imagenService: ImageService) {}
+              private tokenService: TokenService) {}
   isLogged = false
 
   ngOnInit(): void {
-    // this.persona.img = this.imagenService.images
-    // console.log('llamada desde la variable images: '+this.persona.img);
-    // this.persona.img = this.imagenService.getImages()
-    // console.log('llamada desde el método getImages(): '+this.persona.img);
     
     this.cargarPersona()
     if(this.tokenService.getToken()){

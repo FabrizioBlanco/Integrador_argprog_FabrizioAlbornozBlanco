@@ -27,8 +27,7 @@ export class EditAcercaDeComponent implements OnInit {
     })
   }
   onUpdate():void{
-    const id = this.activatedRouter.snapshot.params['id'] 
-    console.log('acá se activa el traer la imangen con la función');    
+    const id = this.activatedRouter.snapshot.params['id']   
     this.persona.img = this.imageService.getImage()
     this.personaS.update(id, this.persona).subscribe(
       data=>{

@@ -16,10 +16,10 @@ export class ImageService {
   upLoadImage($event: any, nombre:string){
     const file = $event.target.files[0] //capturamos la imagen en la posicion 0 del array, junto con sus datos
     const imgRef = ref(this.storage, `imagen/` + nombre)
-    //Con esto subimos el archivo            //obtiene la imagen desde firebase
+    //Con esto subimos el archivo           
     uploadBytes(imgRef, file)
     .then(response=>{
-    this.getImage()
+    this.getImage() //obtiene la imagen desde firebase
     })
     .catch(error=>console.log(error))
 

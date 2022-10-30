@@ -1,33 +1,41 @@
-
-
-<div class="container" *ngIf="persona">
-    <div class="row">
-        <div>
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">apellido</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">descripcion</label>
+                                <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="persona.descripcion" required>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="img">img</label>
+                                <input type="file" class="form-control" id="img" name="img" [(ngModel)]="persona.img" (change)="upLoadImage($event)" accept=".jpg, .jpeg, .png">
+                            </div> -->
+                            <div class="form-group">
+                                <label for="img">img</label>
+                                <input type="file" class="form-control" accept=".jpg, .jpeg, .png" (change)="upLoadImage($event)" >
+                            </div> 
+                            <button class="btn btn-light">
+                                Editar persona
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="apellido">apellido</label>
-                    <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>
-                </div>
-                <div class="form-group">
-                    <label for="descripcion">descripcion</label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="persona.descripcion" required>
-                </div>
-                <!-- <div class="form-group">
-                    <label for="img">img</label>
-                    <input type="file" class="form-control" id="img" name="img" [(ngModel)]="persona.img" (change)="upLoadImage($event)" accept=".jpg, .jpeg, .png">
-                </div> -->
-                <div class="form-group">
-                    <label for="img">img</label>
-                    <input type="file" class="form-control" accept=".jpg, .jpeg, .png" (change)="upLoadImage($event)" >
-                </div> 
-                <button class="btn btn-light">
-                    Editar persona
-                </button>
-            </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+
+            
+    
